@@ -4,34 +4,40 @@ resultado debe mostrarse en un tercer vector*/
 
 #include <iostream>
 using namespace std;
-#define MAX 20
 
 int main()
 {
-    int array1[MAX];
-    int array2[MAX];
-    int array3[MAX];
-    int longitud;
+    int longitud = 0;
+    int array1[longitud];
+    int array2[longitud];
+    int array3[longitud];
 
-    cout <<"Ingresa la longitud del vector: ";
+    cout << "Ingresa la longitud del vector: ";
     cin >> longitud;
 
+    cout << endl
+         << "Ingresando datos para el vector 1..." << endl
+         << endl;
     for (int i = 0; i < longitud; i++)
     {
-        cout << "Ingresando datos para el vector 1..." << endl;
-        cout << "Posicion "<< i + 1 << ") Dime un numero: ";
+        cout << "Posicion [ " << i + 1 << " ] = Dime un numero: ";
         cin >> array1[i];
     }
+
+    cout << endl
+         << "Ingresando datos para el vector 2..." << endl
+         << endl;
     for (int i = 0; i < longitud; i++)
     {
-        cout << "Ingresando datos para el vector 2..." << endl;
-        cout << "Posicion "<< i + 1 << ") Dime un numero: ";
+        cout << "Posicion [ " << i + 1 << " ] = Dime un numero: ";
         cin >> array2[i];
     }
-    array3[0] = 0;
-    for (int i = 1; i < longitud + 1; i++)
+
+    cout << endl
+         << "Calculando resultados..." << endl;
+    for (int i = 0; i < longitud; i++)
     {
-        array3[i] = array3[i - 1] + (array1[i - 1] + array2[i - 1]);
-        cout << "Sumando..." << array3[i] << endl;
+        array3[i] = +(array1[i] + array2[i]);
+        cout << "Posicion [ " << i + 1 << " ] = " << array3[i] << endl;
     }
 }
