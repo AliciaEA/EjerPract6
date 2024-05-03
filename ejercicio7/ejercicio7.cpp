@@ -4,40 +4,56 @@ resultado debe mostrarse en un tercer vector*/
 
 #include <iostream>
 using namespace std;
+#define MAX 10
 
 int main()
 {
     int longitud = 0;
-    int array1[longitud];
-    int array2[longitud];
-    int array3[longitud];
+    int array1[MAX];
+    int array2[MAX];
+    int array3[MAX];
 
-    cout << "Ingresa la longitud del vector: ";
+    cout << "Proporciona la longitud de los vectores (maximo 10): ";
     cin >> longitud;
 
-    cout << endl
-         << "Ingresando datos para el vector 1..." << endl
-         << endl;
-    for (int i = 0; i < longitud; i++)
+    if (longitud <= MAX && longitud > 0)
     {
-        cout << "Posicion [ " << i + 1 << " ] = Dime un numero: ";
-        cin >> array1[i];
-    }
+        cout << endl
+             << "Ingresando datos para el vector 1..." << endl
+             << endl;
+        for (int i = 0; i < longitud; i++)
+        {
+            cout << "Posicion [ " << i + 1 << " ] = Dime un numero: ";
+            cin >> array1[i];
+        }
 
-    cout << endl
-         << "Ingresando datos para el vector 2..." << endl
-         << endl;
-    for (int i = 0; i < longitud; i++)
-    {
-        cout << "Posicion [ " << i + 1 << " ] = Dime un numero: ";
-        cin >> array2[i];
-    }
+        cout << endl
+             << "Ingresando datos para el vector 2..." << endl
+             << endl;
+        for (int i = 0; i < longitud; i++)
+        {
+            cout << "Posicion [ " << i + 1 << " ] = Dime un numero: ";
+            cin >> array2[i];
+        }
 
-    cout << endl
-         << "Calculando resultados..." << endl;
-    for (int i = 0; i < longitud; i++)
+        cout << endl
+             << "Calculando resultados..." << endl;
+        for (int i = 0; i < longitud; i++)
+        {
+            array3[i] = (array1[i] + array2[i]);
+            cout << "Posicion [ " << i + 1 << " ] = " << array3[i] << endl;
+        }
+    }
+    else if (longitud <= 0)
     {
-        array3[i] = +(array1[i] + array2[i]);
-        cout << "Posicion [ " << i + 1 << " ] = " << array3[i] << endl;
+        cout << "Longitud invalida... vuelve a intentarlo" << endl
+             << endl;
+        main();
+    }
+    else
+    {
+        cout << "La longitud maxima es 10, vuelve a intentarlo" << endl
+             << endl;
+        main();
     }
 }

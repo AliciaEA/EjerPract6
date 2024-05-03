@@ -1,29 +1,65 @@
 /*Para un grupo de clase de 8 estudiantes, realice un programa que
-permita calcular y dar como salida lo siguiente: Cantidad de alumnos aprobados. 
+permita calcular y dar como salida lo siguiente: Cantidad de alumnos aprobados.
 Cantidad de alumnos reprobados. Promedio general del grupo*/
 
-
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-float nota, suma=0, promedio;
+#define MAX 8
+#define notaAprobada 60
+
 int aprobados, reprobados;
 
 int main()
 {
-    for(int i=1; i<=10; i++)
+    // Variables
+    int nota[MAX], cant, suma = 0, cantAprobados = 0, cantReprobados = 0;
+    float promedio;
+
+    // Solicitud Cantidad
+    cout << "Cantidad de notas de alumnos a ingresar (maximo 8): " << endl;
+    cin >> cant;
+
+    if (cant <= MAX && cant >= 0)
     {
-        cout<<"Ingrese la nota del estudiante "<<i<<": ";
-        cin>>nota;
-        suma+=nota;
-        if (nota <70)
+        for (int i = 0; i < cant; i++)
         {
-            reprobados += 1; 
-        }else aprobados += 1;
+            // Ingreso de notas
+            cout << "Ingrese la nota del alumno " << i + 1 << ": ";
+            cin >> nota[i];
+            cout << endl;
+        }
+
+        for (int i = 0; i < cant; i++)
+        {
+            suma += nota[i];
+            // Aprobados o reprobados
+            if (nota[i] >= notaAprobada)
+            {
+                cantAprobados++;
+            }
+            else
+            {
+                cantReprobados++;
+            }
+        }
+
+        promedio = suma / cant;
+        
+        //Salidas
+        cout << "El promedio general del grupo es: " << promedio << endl;
+        cout << "La cantidad de alumnos aprobados es: " << cantAprobados << endl;
+        cout << "La cantidad de alumnos reprobados es: " << cantReprobados << endl;
+        cout << "Total de alumnos: " << cant << endl;
     }
-    promedio=suma/10;
-    cout<<"El promedio general de la seccion es: "<<promedio<<endl;
-    cout<<"La cantidad de alumnos aprobados son: "<<aprobados<<endl;
-    cout<<"La cantidad de alumnos reprobados son: "<<reprobados<<endl;
-    return 0;
+    else if (cant <= 0)
+    {
+        cout << "Cantidad invalida, vuelva a intentar..." << endl;
+        main();
+    }
+    else
+    {
+        cout << "La cantidad de alumnos no puede ser mayor a " << MAX << endl;
+        main();
+    }
 }

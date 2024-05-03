@@ -1,6 +1,6 @@
-/*Implementa un programa que solicite al usuario ingresar una matriz y 
-luego calcule su transposición. La transposición de una matriz se 
-realiza intercambiando filas por columnas. Imprime la matriz 
+/*Implementa un programa que solicite al usuario ingresar una matriz y
+luego calcule su transposición. La transposición de una matriz se
+realiza intercambiando filas por columnas. Imprime la matriz
 transpuesta como salida*/
 
 #include <iostream>
@@ -12,11 +12,12 @@ int main(int argc, char const *argv[])
     // matriz[filas][columnas]
     int matriz1[3][3];
 
+    // Entrada matriz normal
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
         {
-            cout << "Matriz 1";
+            cout << "Matriz 1" << endl;
             cout << "Ingresa un numero, fila " << i + 1 << ", columna " << j + 1 << ": ";
             cin >> matriz1[i][j];
         }
@@ -24,20 +25,24 @@ int main(int argc, char const *argv[])
         cout << endl;
     }
 
-    //Salida matriz normal
-    cout <<endl << "Imprimiendo matriz 1..." << endl;
+    // Salida matriz normal
+    cout << endl
+         << "Imprimiendo matriz 1..." << endl;
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
         {
             cout << matriz1[i][j];
-             cout << "\t";
+            cout << "\t";
         }
-        cout << endl<< endl;
+        cout << endl
+             << endl;
     }
     cout << endl;
 
-    cout <<endl << "Matriz transpuesta: " << endl;
+    //Transposicion de matriz
+    cout << endl
+         << "Matriz transpuesta: " << endl;
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
@@ -45,7 +50,8 @@ int main(int argc, char const *argv[])
             cout << matriz1[j][i];
             cout << "\t";
         }
-        cout << endl<<endl;
+        cout << endl
+             << endl;
     }
     return 0;
 }

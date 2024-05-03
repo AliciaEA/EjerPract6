@@ -14,7 +14,7 @@ int main()
 
 void agregar()
 {
-    for (int i = 100; i >= 1 ; i--)
+    for (int i = 100; i >= 1; i--)
     {
         if (i % 2 != 0)
         {
